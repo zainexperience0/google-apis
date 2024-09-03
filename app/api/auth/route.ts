@@ -22,7 +22,10 @@ export async function GET(req: Request) {
     const url = oauth2Client.generateAuthUrl({
       access_type: "offline",
       prompt: "consent",
-      scope: ["https://www.googleapis.com/auth/blogger"],
+      scope: ["https://www.googleapis.com/auth/blogger",
+        "https://www.googleapis.com/auth/drive",
+        "https://www.googleapis.com/auth/drive.apps.readonly",
+      ],
     });
     return NextResponse.redirect(url);
   }
