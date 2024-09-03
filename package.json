@@ -11,6 +11,7 @@
   "dependencies": {
     "cookie": "^0.6.0",
     "googleapis": "^143.0.0",
+    "js-base64": "^3.7.7",
     "next": "14.2.7",
     "react": "^18",
     "react-dom": "^18",

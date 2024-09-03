@@ -28,6 +28,11 @@ export async function GET(req: Request) {
         "https://www.googleapis.com/auth/drive.apps.readonly",
         "https://www.googleapis.com/auth/calendar.readonly",
         "https://www.googleapis.com/auth/calendar",
+        "https://mail.google.com/",
+        "https://www.googleapis.com/auth/gmail.modify",
+        "https://www.googleapis.com/auth/gmail.compose",
+        "https://www.googleapis.com/auth/gmail.readonly",
+        "https://www.googleapis.com/auth/gmail.metadata",
       ],
     });
     return NextResponse.redirect(url);
