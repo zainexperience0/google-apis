@@ -22,9 +22,12 @@ export async function GET(req: Request) {
     const url = oauth2Client.generateAuthUrl({
       access_type: "offline",
       prompt: "consent",
-      scope: ["https://www.googleapis.com/auth/blogger",
+      scope: [
+        "https://www.googleapis.com/auth/blogger",
         "https://www.googleapis.com/auth/drive",
         "https://www.googleapis.com/auth/drive.apps.readonly",
+        "https://www.googleapis.com/auth/calendar.readonly",
+        "https://www.googleapis.com/auth/calendar",
       ],
     });
     return NextResponse.redirect(url);
@@ -36,23 +39,23 @@ export async function GET(req: Request) {
 
     const cookieOptions: any = {
       httpOnly: true,
-      secure: process.env.NODE_ENV === 'production',
-      sameSite: 'Strict',
-      path: '/',
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Strict",
+      path: "/",
     };
     const response = NextResponse.json(tokens, { status: 200 });
 
     response.headers.set(
-      'Set-Cookie',
-      cookie.serialize('access_token', tokens.access_token as any, {
+      "Set-Cookie",
+      cookie.serialize("access_token", tokens.access_token as any, {
         ...cookieOptions,
         maxAge: 3600, // Example: 1 hour (adjust based on token expiration)
       })
     );
 
     response.headers.append(
-      'Set-Cookie',
-      cookie.serialize('refresh_token', tokens.refresh_token as any, {
+      "Set-Cookie",
+      cookie.serialize("refresh_token", tokens.refresh_token as any, {
         ...cookieOptions,
         maxAge: 60 * 60 * 24 * 30, // Example: 30 days (adjust based on your use case)
       })
