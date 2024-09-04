@@ -33,6 +33,7 @@ export async function GET(req: Request) {
         "https://www.googleapis.com/auth/gmail.compose",
         "https://www.googleapis.com/auth/gmail.readonly",
         "https://www.googleapis.com/auth/gmail.metadata",
+        "https://www.googleapis.com/auth/tasks"
       ],
     });
     return NextResponse.redirect(url);
