@@ -30,7 +30,8 @@ const SCOPES = [
   "https://www.googleapis.com/auth/gmail.readonly",
   "https://www.googleapis.com/auth/gmail.metadata",
   "https://www.googleapis.com/auth/tasks",
-  "https://www.googleapis.com/auth/presentations"
+  "https://www.googleapis.com/auth/presentations",
+  "https://www.googleapis.com/auth/spreadsheets"
 ];
 
 const oauth2Client = new google.auth.OAuth2(
